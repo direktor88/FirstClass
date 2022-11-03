@@ -4,11 +4,23 @@
 # a,b,c; a.e.i; a,d,g; d,c,f; g,h,i; c.e.g; b,e,h; e,f.i win position
 
 matrix={} #dict
-print('select cross or zero' )
+
+def sel (); # cross or zero
+    #wrapper
+    print('select cross or zero: 0 or x' )
+    a = input()
+    if a == "0" or "x";
+        print "vvedi snachala stroku a zatem stolbec " 
+        stroka=input('vvedi stroku 1-3   ')
+        kolonka=input('vvedi kolonku 1-3   ')
+        return a, stroka, kolonka
+    else sel()
+
+    
+
+
 
 #select cross or zero
-stroka=input('vvedi stroku 1-3   ')
-kolonka=input('vvedi kolonku 1-3   ')
 cross=input('vvedi krestik   ')
 
 
