@@ -2,6 +2,15 @@
 #  d,e,f
 #  g,h,i
 # a,b,c; a.e.i; a,d,g; d,c,f; g,h,i; c.e.g; b,e,h; e,f.i win position
+print ('igra krestiki - noliki')
+print()
+player1 = input('vvedi imya  ')
+czsel1 = input('vibri krestik "x" ili nolik "0"  ')
+player2 = input ('vtoroi igrok vvedi imya ')
+if czsel1=='x':
+    czsel2="0"
+else:
+    czsel2="x"
 
 m=[
    [0,1,2,3],
@@ -9,7 +18,7 @@ m=[
    [2,0,0,0],
    [3,0,0,0]
 ]
-print(m, sep = '\n')
+# print(m, sep = '\n')
 print('-----')
 for i in range (9):
     z=int(input('vvedi stolbec  '))
