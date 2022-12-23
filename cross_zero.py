@@ -5,12 +5,16 @@
 print ('igra krestiki - noliki')
 print()
 player1 = input('vvedi imya  ')
-czsel1 = input('vibri krestik "x" ili nolik "0"  ')
+czsel1 = input('viberi krestik "x" ili nolik "0"  ')
 player2 = input ('vtoroi igrok vvedi imya ')
 if czsel1=='x':
     czsel2="0"
 else:
     czsel2="x"
+print()
+print("____________________________________________")
+print (f'pervi igrok "{player1}" vibral "{czsel1}"')
+print (f' vtoromu igroku "{player2}" dostalsa "{czsel2}"')
 
 m=[
    [0,1,2,3],
