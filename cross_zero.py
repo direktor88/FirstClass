@@ -18,13 +18,26 @@ print (f' vtoromu igroku "{player2}" dostalsa "{czsel2}"')
 
 m=[
    [0,1,2,3],
-   [1,0,0,0],
-   [2,0,0,0],
-   [3,0,0,0]
+   [1,8,8,8],
+   [2,8,8,8],
+   [3,8,8,8]
 ]
-# print(m, sep = '\n')
+
+#  a,b,c
+#  d,e,f
+#  g,h,i
+# a,b,c; a.e.i; a,d,g; d,c,f; g,h,i; c.e.g; b,e,h; e,f.i win position
+# m[1,1] and m[1,2] and m[1,3]
+# m[1,1] and m[2,2] and m[3,3]
+# m[1,1] and m[2,1] and m[3,1]
+# m[1,2] and m[2,2] and m[3,2]
+# m[1,3] and m[2,3] and m[3,3]
+# m[2,1] and m[2,2] and m[2,3]
+# m[3,1] and m[3,2] and m[3,3]
+# m[3,1] and m[2,2] and m[1,3]
+
 print('-----')
-for i in range (9):
+for i in range (9): # all step = 9
     z=int(input('vvedi stolbec  '))
     x=int(input('vvedi stroku  '))
     val=input('vvedi simvol  ')
