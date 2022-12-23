@@ -36,6 +36,8 @@ m=[
 # m[3,1] and m[3,2] and m[3,3]
 # m[3,1] and m[2,2] and m[1,3]
 
+# нужно прописать зависимость
+# https://lms.skillfactory.ru/courses/course-v1:SkillFactory+FPW-2.0+27AUG2020/courseware/5474bc39c2294893840f3e89e37d31db/c9591776961d497bbeb9bad8c5e41685/3?activate_block_id=block-v1%3ASkillFactory%2BFPW-2.0%2B27AUG2020%2Btype%40vertical%2Bblock%40be2d1081789d4a98a9a670f01557594b
 print('-----')
 for i in range (9): # all step = 9
     z=int(input('vvedi stolbec  '))
