@@ -5,10 +5,10 @@
 print ('igra krestiki - noliki')
 print()
 player1 = input('vvedi imya  ')
-czsel1 = input('viberi krestik "x" ili nolik "0"  ')
+czsel1 = input('viberi krestik "x" ili nolik "o"  ') #CrossZeroSelection
 player2 = input ('vtoroi igrok vvedi imya ')
 if czsel1=='x':
-    czsel2="0"
+    czsel2="o"
 else:
     czsel2="x"
 print()
@@ -23,21 +23,15 @@ m=[
    [2,8,8,8],
    [3,8,8,8]
 ]
-
-#  a,b,c
-#  d,e,f
-#  g,h,i
-# a,b,c; a.e.i; a,d,g; d,c,f; g,h,i; c.e.g; b,e,h; e,f.i win position
-
 def chkwin ():
-    if any ([ m[1,1] and m[1,2] and m[1,3] =='x' or '0',
-        m[1,1] and m[2,2] and m[3,3] =='x' or '0',
-        m[1,1] and m[2,1] and m[3,1] =='x' or '0',
-        m[1,2] and m[2,2] and m[3,2] =='x' or '0',
-        m[1,3] and m[2,3] and m[3,3] =='x' or '0',
-        m[2,1] and m[2,2] and m[2,3] =='x' or '0',
-        m[3,1] and m[3,2] and m[3,3] =='x' or '0',
-        m[3,1] and m[2,2] and m[1,3] =='x' or '0' ]):
+    if any ([ m[1][1] and m[1][2] and m[1][3] =='x' or 'o',
+        m[1][1] and m[2][2] and m[3][3] =='x' or 'o',
+        m[1][1] and m[2][1] and m[3][1] =='x' or 'o',
+        m[1][2] and m[2][2] and m[3][2] =='x' or 'o',
+        m[1][3] and m[2][3] and m[3][3] =='x' or 'o',
+        m[2][1] and m[2][2] and m[2][3] =='x' or 'o',
+        m[3][1] and m[3][2] and m[3][3] =='x' or 'o',
+        m[3][1] and m[2][2] and m[1][3] =='x' or 'o' ]):
         print('win')
 
 
@@ -57,7 +51,7 @@ for i in range (9): # all step = 9
     #print("1",m)
     m[x][z]=val
     print(m)
-    chkwin()
+    #chkwin()
     for i in m:
         print(i, sep='\n' )
     if i==9:
