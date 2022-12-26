@@ -47,22 +47,25 @@ def chkwin (): # Check win
         print('win')
 print('-----')
 # def userchk ():
-
-for i in range (9): # all step = 9
-    z=int(input('vvedi stolbec  '))
-    x=int(input('vvedi stroku  '))
-    val=input('vvedi simvol  ')
-    # функция проверки введенного символа
-    # def проверка занятой ячейки
-    m[x][z]=val
-    for i in m:
-        print(i, sep='\n' )
-    # def  проверка
-    if chkwin():
-        print ('pobeda')
-        break
-    if i==9:
-        print('konec')
+def simvol_chk ():
+    if m[x][z]=="x" or "o":
+def base_game ():
+    for i in range (9): # all step = 9
+        z=int(input('vvedi stolbec  '))
+        x=int(input('vvedi stroku  '))
+        val=input('vvedi simvol  ')
+        # функция проверки введенного символа
+        # def проверка занятой ячейки
+        m[x][z]=val
+        simvol_chk()
+        for i in m:
+            print(i, sep='\n' )
+        # def  проверка
+        if chkwin():
+            print ('pobeda')
+            break
+        if i==9:
+            print('konec')
 
 
 
