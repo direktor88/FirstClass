@@ -19,27 +19,27 @@ print (f' vtoromu igroku "{player2}" dostalsa "{czsel2}"')
 
 m=[
    [0,1,2,3],
-   [1,8,8,8],
-   [2,8,8,8],
-   [3,8,8,8]
+   [1,0,0,0],
+   [2,0,0,0],
+   [3,0,0,0]
 ]
-def chkwin ():
+def chkwin (): # Check win
     if m[1][1] and m[1][2] and m[1][3] =='x' or 'o':
-        print('win')
+        #print('win')
     elif m[1][1] and m[2][2] and m[3][3] =='x' or 'o':
-        print('win')
+        #print('win')
     elif m[1][1] and m[2][1] and m[3][1] =='x' or 'o':
-        print('win')
+        #print('win')
     elif m[1][2] and m[2][2] and m[3][2] =='x' or 'o':
-        print('win')
+        #print('win')
     elif m[1][3] and m[2][3] and m[3][3] =='x' or 'o':
-        print('win')
+        #print('win')
     elif m[2][1] and m[2][2] and m[2][3] =='x' or 'o':
-        print('win')
+        #print('win')
     elif m[3][1] and m[3][2] and m[3][3] =='x' or 'o':
-        print('win')
+        #print('win')
     elif m[3][1] and m[2][2] and m[1][3] =='x' or 'o':
-        print('win')
+        #print('win')
 
 
 
@@ -54,45 +54,31 @@ for i in range (9): # all step = 9
     z=int(input('vvedi stolbec  '))
     x=int(input('vvedi stroku  '))
     val=input('vvedi simvol  ')
-    #m.append(n)
-    #print("1",m)
+    # функция проверки введенного символа
+    # def проверка занятой ячейки
     m[x][z]=val
-    print(m)
-    #chkwin()
     for i in m:
         print(i, sep='\n' )
+
+    # def  проверка
+    chkwin()
+    if chkwin():
+        print ('pobeda')
+        break
     if i==9:
         print('konec')
 
-#def sel (): # cross or zero
-#    #wrapper
-#    print('select cross or zero: 0 or x' )
-#    a = input()
-#    if a == "0" or "x":
-#        print ("vvedi snachala stroku a zatem stolbec ")
-#        stroka=input('vvedi stroku 1-3   ')
-#        kolonka=input('vvedi kolonku 1-3   ')
-#    return a, stroka, kolonka
-#    else print ('wrong')
-#sel()
-#print (a, stroka, kolonka)
+
 
 
     
 
 
 
-#select cross or zero
-#cross=input('vvedi krestik   ')
 
 
-#zero=input('vvedi nolik   ')
-# chto vvedeno?
 
-#stroka=input('vvedi stroku 1-3   ')
-#kolonka=input('vvedi kolonku 1-3   ')
-#c=matrix[0]
-#y=matrix[1]
-#z=matrix[2]
-#if stroka == int('1');
+
+
+
     
