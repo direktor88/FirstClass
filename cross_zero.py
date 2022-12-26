@@ -24,14 +24,21 @@ m=[
    [3,8,8,8]
 ]
 def chkwin ():
-    if any ([ m[1][1] and m[1][2] and m[1][3] =='x' or 'o',
-        m[1][1] and m[2][2] and m[3][3] =='x' or 'o',
-        m[1][1] and m[2][1] and m[3][1] =='x' or 'o',
-        m[1][2] and m[2][2] and m[3][2] =='x' or 'o',
-        m[1][3] and m[2][3] and m[3][3] =='x' or 'o',
-        m[2][1] and m[2][2] and m[2][3] =='x' or 'o',
-        m[3][1] and m[3][2] and m[3][3] =='x' or 'o',
-        m[3][1] and m[2][2] and m[1][3] =='x' or 'o' ]):
+    if m[1][1] and m[1][2] and m[1][3] =='x' or 'o':
+        print('win')
+    elif m[1][1] and m[2][2] and m[3][3] =='x' or 'o':
+        print('win')
+    elif m[1][1] and m[2][1] and m[3][1] =='x' or 'o':
+        print('win')
+    elif m[1][2] and m[2][2] and m[3][2] =='x' or 'o':
+        print('win')
+    elif m[1][3] and m[2][3] and m[3][3] =='x' or 'o':
+        print('win')
+    elif m[2][1] and m[2][2] and m[2][3] =='x' or 'o':
+        print('win')
+    elif m[3][1] and m[3][2] and m[3][3] =='x' or 'o':
+        print('win')
+    elif m[3][1] and m[2][2] and m[1][3] =='x' or 'o':
         print('win')
 
 
