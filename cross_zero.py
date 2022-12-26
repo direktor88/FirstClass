@@ -47,8 +47,10 @@ def chkwin (): # Check win
         print('win')
 print('-----')
 # def userchk ():
-def simvol_chk ():
+def simvol_chk (): # proverka vvedennogo simvola
     if m[x][z]=="x" or "o":
+        base_game()
+# ввод координат придется вписывать через ДЕФ
 def base_game ():
     for i in range (9): # all step = 9
         z=int(input('vvedi stolbec  '))
@@ -56,8 +58,9 @@ def base_game ():
         val=input('vvedi simvol  ')
         # функция проверки введенного символа
         # def проверка занятой ячейки
-        m[x][z]=val
         simvol_chk()
+        m[x][z]=val
+
         for i in m:
             print(i, sep='\n' )
         # def  проверка
