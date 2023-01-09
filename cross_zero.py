@@ -30,7 +30,7 @@ m=[
 ]
 def chkwin (): # Check win
     if m[1][1] and m[1][2] and m[1][3] =='x' or 'o':
-        print('win')
+        print('win') # need add def to win!!!
     elif m[1][1] and m[2][2] and m[3][3] =='x' or 'o':
         print('win')
     elif m[1][1] and m[2][1] and m[3][1] =='x' or 'o':
@@ -51,10 +51,14 @@ def simvol_chk (): # proverka vvedennogo simvola
     if m[x][z]=="x" or "o":
         base_game()
 # ввод координат придется вписывать через ДЕФ
+def vvod ():
+    z = int(input('vvedi stolbec  '))
+    x = int(input('vvedi stroku  '))
+    return (x,y)
+
 def base_game ():
     for i in range (9): # all step = 9
-        z=int(input('vvedi stolbec  '))
-        x=int(input('vvedi stroku  '))
+        vvod()
         val=input('vvedi simvol  ')
         # функция проверки введенного символа
         # def проверка занятой ячейки
@@ -69,7 +73,9 @@ def base_game ():
             break
         if i==9:
             print('konec')
-
+def run_game ():
+    simvol_chk()
+run_game()
 
 
 
