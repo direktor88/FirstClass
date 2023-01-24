@@ -71,11 +71,9 @@ win8 = [
     [2, '_', '_', '_'],
     [3, 'x', 'x', 'x']
 ]
-
-
 def clear():
     global m
-    m = m = [
+    m =  [
         [0, 1, 2, 3],
         [1, '_', '_', '_'],
         [2, '_', '_', '_'],
@@ -84,32 +82,19 @@ def clear():
 
 
 def pobeda():
+    print()
     print('pobeda!!!')
+    print ()
     print("END")
+    print()
     clear()
+    for j in m:
+        print(*j)
+    print()
+    begin()
 
 
-# def chkwin():  # Check win
-#     if m[1][1] and m[1][2] and m[1][3] == 'x' or 'o':
-#         print('win')
-#     elif m[1][1] and m[2][2] and m[3][3] == 'x' or 'o':
-#         print('win')
-#     elif m[1][1] and m[2][1] and m[3][1] == 'x' or 'o':
-#         print('win')
-#     elif m[1][2] and m[2][2] and m[3][2] == 'x' or 'o':
-#         print('win')
-#     elif m[1][3] and m[2][3] and m[3][3] == 'x' or 'o':
-#         print('win')
-#     elif m[2][1] and m[2][2] and m[2][3] == 'x' or 'o':
-#         print('win')
-#     elif m[3][1] and m[3][2] and m[3][3] == 'x' or 'o':
-#         print('win')
-#     elif m[3][1] and m[2][2] and m[1][3] == 'x' or 'o':
-#         print('win')
 #
-#
-# print('-----')
-
 def simvol_chk():
     if m[x][z] == 0:
         # base_game()
@@ -132,22 +117,27 @@ def base_game():
         m[x][z] = val
         for j in m:
             print(*j)
-        if m == win1:
-            pobeda()
-        elif m == win2:
-            pobeda()
-        elif m == win3:
-            pobeda()
-        elif m == win4:
-            pobeda()
-        elif m == win5:
-            pobeda()
-        elif m == win6:
-            pobeda()
-        elif m == win7:
-            pobeda()
-        elif m == win8:
-            pobeda()
+        mm = (win1, win2, win3, win4, # matrix in matrix
+              win5, win6, win7, win8)
+        for ff in mm: # cheking!!!
+            if m == ff:
+                pobeda()
+              # if m == win1:
+        #     pobeda()
+        # elif m == win2:
+        #     pobeda()
+        # elif m == win3:
+        #     pobeda()
+        # elif m == win4:
+        #     pobeda()
+        # elif m == win5:
+        #     pobeda()
+        # elif m == win6:
+        #     pobeda()
+        # elif m == win7:
+        #     pobeda()
+        # elif m == win8:
+        #     pobeda()
 
 begin()
 base_game()
