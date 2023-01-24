@@ -80,6 +80,12 @@ def clear():
         [3, '_', '_', '_']
     ]
 
+def check_win ():
+    mm = (win1, win2, win3, win4,  # matrix in matrix
+          win5, win6, win7, win8)
+    for ff in mm:  # cheking!!!
+        if m == ff:
+            pobeda()
 
 def pobeda():
     print()
@@ -113,31 +119,11 @@ def base_game():
         print()
         # функция проверки введенного символа
         # def проверка занятой ячейки
-
         m[x][z] = val
         for j in m:
             print(*j)
-        mm = (win1, win2, win3, win4, # matrix in matrix
-              win5, win6, win7, win8)
-        for ff in mm: # cheking!!!
-            if m == ff:
-                pobeda()
-              # if m == win1:
-        #     pobeda()
-        # elif m == win2:
-        #     pobeda()
-        # elif m == win3:
-        #     pobeda()
-        # elif m == win4:
-        #     pobeda()
-        # elif m == win5:
-        #     pobeda()
-        # elif m == win6:
-        #     pobeda()
-        # elif m == win7:
-        #     pobeda()
-        # elif m == win8:
-        #     pobeda()
+        check_win()
+
 
 begin()
 base_game()
