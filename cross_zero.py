@@ -1,34 +1,29 @@
-#  a,b,c
-#  d,e,f
-#  g,h,i
-# a,b,c; a.e.i; a,d,g; d,c,f; g,h,i; c.e.g; b,e,h; e,f.i win position
-print('igra krestiki - noliki')
-print()
-user1_data = {}
-user2_data = {}
-player1 = input('vvedi imya  ')
-user1_data['user'] = player1
-czsel1 = input('viberi krestik "x" ili nolik "o"  ')  # CrossZeroSelection
-user1_data['simvol'] = czsel1
-player2 = input('vtoroi igrok vvedi imya ')
-user2_data['user'] = player2
-if czsel1 == 'x':
-    czsel2 = "o"
-else:
-    czsel2 = "x"
-user2_data['simvol'] = czsel2
-# print(user1_data,user2_data)
-
-print("____________________________________________")
-print(f'pervi igrok "{player1}" vibral "{czsel1}"')
-print(f' vtoromu igroku "{player2}" dostalsa "{czsel2}"')
+def begin():
+    print('igra krestiki - noliki')
+    print()
+    user1_data = {}
+    user2_data = {}
+    player1 = input('vvedi imya  ')
+    user1_data['user'] = player1
+    czsel1 = input('viberi krestik "x" ili nolik "o"  ')  # CrossZeroSelection
+    user1_data['simvol'] = czsel1
+    player2 = input('vtoroi igrok vvedi imya ')
+    user2_data['user'] = player2
+    if czsel1 == 'x':
+        czsel2 = "o"
+    else:
+        czsel2 = "x"
+    user2_data['simvol'] = czsel2
+    print("____________________________________________")
+    print(f'pervi igrok "{player1}" vibral "{czsel1}"')
+    print(f' vtoromu igroku "{player2}" dostalsa "{czsel2}"')
 m = [
     [0, 1, 2, 3],
     [1, '_', '_', '_'],
     [2, '_', '_', '_'],
     [3, '_', '_', '_']
-]
-win1 = [
+] # just borned matrix ;)
+win1 = [ # win combination
     [0, 1, 2, 3],
     [1, 'x', '_', '_'],
     [2, 'x', '_', '_'],
@@ -78,9 +73,20 @@ win8 = [
 ]
 
 
+def clear():
+    global m
+    m = m = [
+        [0, 1, 2, 3],
+        [1, '_', '_', '_'],
+        [2, '_', '_', '_'],
+        [3, '_', '_', '_']
+    ]
+
+
 def pobeda():
     print('pobeda!!!')
     print("END")
+    clear()
 
 
 # def chkwin():  # Check win
@@ -110,17 +116,19 @@ def simvol_chk():
         print("uzhe zanyto, viberi druguiu kletku")
 
 
-
 def base_game():
     for i in range(9):  # all step = 9
-        print (f "шаг" , "i" )
+        print()
+        print(i + 1, "ХОД")
         global x, z  # meet
+        print()
         z = int(input('vvedi stolbec  '))
         x = int(input('vvedi stroku  '))
         val = str(input('vvedi simvol  '))
-    # функция проверки введенного символа
-    # def проверка занятой ячейки
-    # simvol_chk()
+        print()
+        # функция проверки введенного символа
+        # def проверка занятой ячейки
+
         m[x][z] = val
         for j in m:
             print(*j)
@@ -129,7 +137,7 @@ def base_game():
         elif m == win2:
             pobeda()
         elif m == win3:
-             pobeda()
+            pobeda()
         elif m == win4:
             pobeda()
         elif m == win5:
@@ -141,5 +149,5 @@ def base_game():
         elif m == win8:
             pobeda()
 
-
+begin()
 base_game()
