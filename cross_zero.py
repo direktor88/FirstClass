@@ -24,61 +24,122 @@ print(f'pervi igrok "{player1}" vibral "{czsel1}"')
 print(f' vtoromu igroku "{player2}" dostalsa "{czsel2}"')
 m = [
     [0, 1, 2, 3],
-    [1, 0, 0, 0],
-    [2, 0, 0, 0],
-    [3, 0, 0, 0]
+    [1, '_', '_', '_'],
+    [2, '_', '_', '_'],
+    [3, '_', '_', '_']
+]
+win1 = [
+    [0, 1, 2, 3],
+    [1, 'x', '_', '_'],
+    [2, 'x', '_', '_'],
+    [3, 'x', '_', '_']
+]
+win2 = [
+    [0, 1, 2, 3],
+    [1, 'x', 'x', 'x'],
+    [2, '_', '_', '_'],
+    [3, '_', '_', '_']
+]
+win3 = [
+    [0, 1, 2, 3],
+    [1, 'x', '_', '_'],
+    [2, '_', 'x', '_'],
+    [3, '_', '_', 'x']
+]
+win4 = [
+    [0, 1, 2, 3],
+    [1, '_', 'x', '_'],
+    [2, '_', 'x', '_'],
+    [3, '_', 'x', '_']
+]
+win5 = [
+    [0, 1, 2, 3],
+    [1, '_', '_', 'x'],
+    [2, '_', '_', 'x'],
+    [3, '_', '_', 'x']
+]
+win6 = [
+    [0, 1, 2, 3],
+    [1, '_', '_', 'x'],
+    [2, '_', 'x', '_'],
+    [3, 'x', '_', '_']
+]
+win7 = [
+    [0, 1, 2, 3],
+    [1, '_', '_', '_'],
+    [2, 'x', 'x', 'x'],
+    [3, '_', '_', '_']
+]
+win8 = [
+    [0, 1, 2, 3],
+    [1, '_', '_', '_'],
+    [2, '_', '_', '_'],
+    [3, 'x', 'x', 'x']
 ]
 
 
-def chkwin():  # Check win
-    if m[1][1] and m[1][2] and m[1][3] == 'x' or 'o':
-        print('win')
-    elif m[1][1] and m[2][2] and m[3][3] == 'x' or 'o':
-        print('win')
-    elif m[1][1] and m[2][1] and m[3][1] == 'x' or 'o':
-        print('win')
-    elif m[1][2] and m[2][2] and m[3][2] == 'x' or 'o':
-        print('win')
-    elif m[1][3] and m[2][3] and m[3][3] == 'x' or 'o':
-        print('win')
-    elif m[2][1] and m[2][2] and m[2][3] == 'x' or 'o':
-        print('win')
-    elif m[3][1] and m[3][2] and m[3][3] == 'x' or 'o':
-        print('win')
-    elif m[3][1] and m[2][2] and m[1][3] == 'x' or 'o':
-        print('win')
+def pobeda():
+    print('pobeda!!!')
+    print("END")
 
 
-print('-----')
+# def chkwin():  # Check win
+#     if m[1][1] and m[1][2] and m[1][3] == 'x' or 'o':
+#         print('win')
+#     elif m[1][1] and m[2][2] and m[3][3] == 'x' or 'o':
+#         print('win')
+#     elif m[1][1] and m[2][1] and m[3][1] == 'x' or 'o':
+#         print('win')
+#     elif m[1][2] and m[2][2] and m[3][2] == 'x' or 'o':
+#         print('win')
+#     elif m[1][3] and m[2][3] and m[3][3] == 'x' or 'o':
+#         print('win')
+#     elif m[2][1] and m[2][2] and m[2][3] == 'x' or 'o':
+#         print('win')
+#     elif m[3][1] and m[3][2] and m[3][3] == 'x' or 'o':
+#         print('win')
+#     elif m[3][1] and m[2][2] and m[1][3] == 'x' or 'o':
+#         print('win')
+#
+#
+# print('-----')
 
-
-# def userchk ():
 def simvol_chk():
-    if m[x][z] == "x" or "o":
-        base_game()
+    if m[x][z] == 0:
+        # base_game()
+        print("uzhe zanyto, viberi druguiu kletku")
+
 
 
 def base_game():
-    # elif
     for i in range(9):  # all step = 9
+        print (f "шаг" , "i" )
         global x, z  # meet
         z = int(input('vvedi stolbec  '))
         x = int(input('vvedi stroku  '))
         val = str(input('vvedi simvol  '))
-        # функция проверки введенного символа
-        # def проверка занятой ячейки
+    # функция проверки введенного символа
+    # def проверка занятой ячейки
+    # simvol_chk()
         m[x][z] = val
-        print (m)
-
-        simvol_chk()
-        for i in m:
-            print(i, sep='\n')
-        # def  проверка
-        if chkwin():
-            print('pobeda')
-            break
-        if i == 9:
-            print('konec')
+        for j in m:
+            print(*j)
+        if m == win1:
+            pobeda()
+        elif m == win2:
+            pobeda()
+        elif m == win3:
+             pobeda()
+        elif m == win4:
+            pobeda()
+        elif m == win5:
+            pobeda()
+        elif m == win6:
+            pobeda()
+        elif m == win7:
+            pobeda()
+        elif m == win8:
+            pobeda()
 
 
 base_game()
