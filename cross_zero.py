@@ -1,6 +1,9 @@
 def begin():
     print('igra krestiki - noliki')
     print()
+    for j in m:
+        print(*j)
+    print()
     user1_data = {}
     user2_data = {}
     player1 = input('vvedi imya  ')
@@ -17,87 +20,119 @@ def begin():
     print("____________________________________________")
     print(f'pervi igrok "{player1}" vibral "{czsel1}"')
     print(f' vtoromu igroku "{player2}" dostalsa "{czsel2}"')
+
+
 m = [
     [0, 1, 2, 3],
     [1, '_', '_', '_'],
     [2, '_', '_', '_'],
     [3, '_', '_', '_']
-] # just borned matrix ;)
-win1 = [ # win combination
+]  # just borned matrix ;)
+cross = [ # clear matrix for "cross"
     [0, 1, 2, 3],
-    [1, 'x', '_', '_'],
-    [2, 'x', '_', '_'],
-    [3, 'x', '_', '_']
+    [1, '_', '_', '_'],
+    [2, '_', '_', '_'],
+    [3, '_', '_', '_']
+]
+zero = [ # clear matrix for "zero"
+    [0, 1, 2, 3],
+    [1, '_', '_', '_'],
+    [2, '_', '_', '_'],
+    [3, '_', '_', '_']
+]
+win1 = [  # win combination
+    [0, 1, 2, 3],
+    [1, 'w', '_', '_'],
+    [2, 'w', '_', '_'],
+    [3, 'w', '_', '_']
 ]
 win2 = [
     [0, 1, 2, 3],
-    [1, 'x', 'x', 'x'],
+    [1, 'w', 'w', 'w'],
     [2, '_', '_', '_'],
     [3, '_', '_', '_']
 ]
 win3 = [
     [0, 1, 2, 3],
-    [1, 'x', '_', '_'],
-    [2, '_', 'x', '_'],
-    [3, '_', '_', 'x']
+    [1, 'w', '_', '_'],
+    [2, '_', 'w', '_'],
+    [3, '_', '_', 'w']
 ]
 win4 = [
     [0, 1, 2, 3],
-    [1, '_', 'x', '_'],
-    [2, '_', 'x', '_'],
-    [3, '_', 'x', '_']
+    [1, '_', 'w', '_'],
+    [2, '_', 'w', '_'],
+    [3, '_', 'w', '_']
 ]
 win5 = [
     [0, 1, 2, 3],
-    [1, '_', '_', 'x'],
-    [2, '_', '_', 'x'],
-    [3, '_', '_', 'x']
+    [1, '_', '_', 'w'],
+    [2, '_', '_', 'w'],
+    [3, '_', '_', 'w']
 ]
 win6 = [
     [0, 1, 2, 3],
-    [1, '_', '_', 'x'],
-    [2, '_', 'x', '_'],
-    [3, 'x', '_', '_']
+    [1, '_', '_', 'w'],
+    [2, '_', 'w', '_'],
+    [3, 'w', '_', '_']
 ]
 win7 = [
     [0, 1, 2, 3],
     [1, '_', '_', '_'],
-    [2, 'x', 'x', 'x'],
+    [2, 'w', 'w', 'w'],
     [3, '_', '_', '_']
 ]
 win8 = [
     [0, 1, 2, 3],
     [1, '_', '_', '_'],
     [2, '_', '_', '_'],
-    [3, 'x', 'x', 'x']
+    [3, 'w', 'w', 'w']
 ]
-def clear():
-    global m
-    m =  [
+
+
+def clear(): # clear matrix
+    global m, zero, cross
+    m = [
+        [0, 1, 2, 3],
+        [1, '_', '_', '_'],
+        [2, '_', '_', '_'],
+        [3, '_', '_', '_']
+    ]
+    cross = [  # clear matrix for "cross"
+        [0, 1, 2, 3],
+        [1, '_', '_', '_'],
+        [2, '_', '_', '_'],
+        [3, '_', '_', '_']
+    ]
+    zero = [  # clear matrix for "zero"
         [0, 1, 2, 3],
         [1, '_', '_', '_'],
         [2, '_', '_', '_'],
         [3, '_', '_', '_']
     ]
 
-def check_win ():
+
+def check_win():
     mm = (win1, win2, win3, win4,  # matrix in matrix
           win5, win6, win7, win8)
     for ff in mm:  # cheking!!!
-        if m == ff:
+        if cross == ff:
             pobeda()
+        elif zero ==ff:
+            pobeda()
+
 
 def pobeda():
     print()
     print('pobeda!!!')
-    print ()
+    print()
     print("END")
     print()
     clear()
     for j in m:
         print(*j)
     print()
-    begin()
+    # begin()
 
 
 #
@@ -108,21 +143,28 @@ def simvol_chk():
 
 
 def base_game():
-    for i in range(9):  # all step = 9
+    i = 0
+    while i < 9:  # all step = 9
         print()
         print(i + 1, "ХОД")
-        global x, z  # meet
+        global y, z  # meeting
         print()
         z = int(input('vvedi stolbec  '))
-        x = int(input('vvedi stroku  '))
+        y = int(input('vvedi stroku  '))
         val = str(input('vvedi simvol  '))
         print()
         # функция проверки введенного символа
         # def проверка занятой ячейки
-        m[x][z] = val
+        m[y][z] = val
         for j in m:
             print(*j)
+            # функция замены переменной в матрице.
+        if m[y][z] == "x":  # create cross - zero matrix
+            cross[y][z] = "w"
+        elif m[y][z] == "o":
+            zero[y][z] = "w"
         check_win()
+        i = +1
 
 
 begin()
