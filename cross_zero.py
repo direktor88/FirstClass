@@ -4,6 +4,7 @@ def begin():
     for j in m:
         print(*j)
     print()
+    global czsel1, czsel2
     user1_data = {}
     user2_data = {}
     player1 = input('vvedi imya  ')
@@ -20,6 +21,7 @@ def begin():
     print("____________________________________________")
     print(f'pervi igrok "{player1}" vibral "{czsel1}"')
     print(f' vtoromu igroku "{player2}" dostalsa "{czsel2}"')
+
 
 m = [
     [0, 1, 2, 3],
@@ -88,6 +90,7 @@ win8 = [
     [3, 'w', 'w', 'w']
 ]
 
+
 def clear():  # clear matrix
     global m, zero, cross
     m = [
@@ -110,7 +113,7 @@ def clear():  # clear matrix
     ]
 
 
-def check_win(): # proverka viigrisha
+def check_win():  # proverka viigrisha
     mm = (win1, win2, win3, win4,  # matrix in matrix
           win5, win6, win7, win8)
     for ff in mm:  # cheking!!!
@@ -118,9 +121,19 @@ def check_win(): # proverka viigrisha
             pobeda()
         elif zero == ff:
             pobeda()
+def nichya():
+    ze = cr = 0
+    for i in m:
+        for j in i:
+            if j == 'o':
+                ze += 1
+            elif j == 'x':
+                cr += 1
+            if ze == cr:
+                print('Voznikla nichya, nachinaem novuyou igru')
+                exit()
 
-
-def pobeda(): # deistvia pri pobede
+def pobeda():  # deistvia pri pobede
     print()
     print('pobeda!!!')
     print()
@@ -129,33 +142,31 @@ def pobeda(): # deistvia pri pobede
     clear()
     for j in m:
         print(*j)
-    yield
-def input_z (): # #vvod ideksa
+    exit()
+def input_z():  # #vvod indeksa
     global z
-    z = int(input('vvedi stolbec ot 1 do 3  '))
-    if 1<=z<=3:
+    z = int(input('vvedi nomer stolbca ot 1 do 3  '))
+    if 1 <= z <= 3:
         return z
     else:
         print('bud vnimatelen! stolbcov vsego 3 ')
         input_z()
-
-def input_y(): ##vvod ideksa
+def input_y():  ##vvod indeksa
     global y
-    y = int(input('vvedi stroku  '))
-    if 1<=y<=3:
+    y = int(input('vvedi nomer stroki  '))
+    if 1 <= y <= 3:
         return y
     else:
         print('bud vnimatelen! strok vsego 3 ')
         input_y()
-
 def base_game():
     i = 0
     while i < 9:  # all step = 9
         print()
-        print("ХОД", i+1)
+        print("ХОД", i + 1)
         print()
-        input_z() #vvod ideksa
-        input_y() #vvod ideksa
+        input_z()  # vvod indeksa
+        input_y()  # vvod indeksa
         val = str(input('vvedi simvol   '))
         # proverka ocheredi
         if cross[y][z] == "w":
@@ -174,9 +185,8 @@ def base_game():
             elif m[y][z] == "o":
                 zero[y][z] = "w"
                 print('zero', zero)
+            nichya()
             check_win()
         i = +1
-
-
 begin()
 base_game()
