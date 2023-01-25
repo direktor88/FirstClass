@@ -127,11 +127,13 @@ def nichya():
         for j in i:
             if j == 'o':
                 ze += 1
+                #print('ze', ze)
             elif j == 'x':
                 cr += 1
-            if ze == cr:
-                print('Voznikla nichya, nachinaem novuyou igru')
-                exit()
+                #print('cr', cr)
+    if ((ze == 5) and (cr==4)) or ((ze==4) and (cr==5)):
+        print('Voznikla nichya, nachnite novuyou igru')
+        exit()
 
 def pobeda():  # deistvia pri pobede
     print()
@@ -181,10 +183,10 @@ def base_game():
             # функция замены переменной в матрице.
             if m[y][z] == "x":  # create cross - zero matrix
                 cross[y][z] = "w"
-                print("cross", cross)
+                #print("cross", cross)
             elif m[y][z] == "o":
                 zero[y][z] = "w"
-                print('zero', zero)
+                #print('zero', zero)
             nichya()
             check_win()
         i = +1
