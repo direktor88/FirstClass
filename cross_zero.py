@@ -21,20 +21,19 @@ def begin():
     print(f'pervi igrok "{player1}" vibral "{czsel1}"')
     print(f' vtoromu igroku "{player2}" dostalsa "{czsel2}"')
 
-
 m = [
     [0, 1, 2, 3],
     [1, '_', '_', '_'],
     [2, '_', '_', '_'],
     [3, '_', '_', '_']
 ]  # just borned matrix ;)
-cross = [ # clear matrix for "cross"
+cross = [  # clear matrix for "cross"
     [0, 1, 2, 3],
     [1, '_', '_', '_'],
     [2, '_', '_', '_'],
     [3, '_', '_', '_']
 ]
-zero = [ # clear matrix for "zero"
+zero = [  # clear matrix for "zero"
     [0, 1, 2, 3],
     [1, '_', '_', '_'],
     [2, '_', '_', '_'],
@@ -89,8 +88,7 @@ win8 = [
     [3, 'w', 'w', 'w']
 ]
 
-
-def clear(): # clear matrix
+def clear():  # clear matrix
     global m, zero, cross
     m = [
         [0, 1, 2, 3],
@@ -112,17 +110,17 @@ def clear(): # clear matrix
     ]
 
 
-def check_win():
+def check_win(): # proverka viigrisha
     mm = (win1, win2, win3, win4,  # matrix in matrix
           win5, win6, win7, win8)
     for ff in mm:  # cheking!!!
         if cross == ff:
             pobeda()
-        elif zero ==ff:
+        elif zero == ff:
             pobeda()
 
 
-def pobeda():
+def pobeda(): # deistvia pri pobede
     print()
     print('pobeda!!!')
     print()
@@ -131,39 +129,52 @@ def pobeda():
     clear()
     for j in m:
         print(*j)
-    print()
-    # begin()
+    yield
+def input_z (): # #vvod ideksa
+    global z
+    z = int(input('vvedi stolbec ot 1 do 3  '))
+    if 1<=z<=3:
+        return z
+    else:
+        print('bud vnimatelen! stolbcov vsego 3 ')
+        input_z()
 
-
-#
-def simvol_chk():
-    if m[x][z] == 0:
-        # base_game()
-        print("uzhe zanyto, viberi druguiu kletku")
-
+def input_y(): ##vvod ideksa
+    global y
+    y = int(input('vvedi stroku  '))
+    if 1<=y<=3:
+        return y
+    else:
+        print('bud vnimatelen! strok vsego 3 ')
+        input_y()
 
 def base_game():
     i = 0
     while i < 9:  # all step = 9
         print()
-        print(i + 1, "ХОД")
-        global y, z  # meeting
+        print("ХОД", i+1)
         print()
-        z = int(input('vvedi stolbec  '))
-        y = int(input('vvedi stroku  '))
-        val = str(input('vvedi simvol  '))
-        print()
-        # функция проверки введенного символа
-        # def проверка занятой ячейки
-        m[y][z] = val
-        for j in m:
-            print(*j)
+        input_z() #vvod ideksa
+        input_y() #vvod ideksa
+        val = str(input('vvedi simvol   '))
+        # proverka ocheredi
+        if cross[y][z] == "w":
+            print("uzhe zanyto, viberi druguiu kletku")
+        elif zero[y][z] == 'w':
+            print("uzhe zanyto, viberi druguiu kletku")
+
+        else:
+            m[y][z] = val
+            for j in m:
+                print(*j)
             # функция замены переменной в матрице.
-        if m[y][z] == "x":  # create cross - zero matrix
-            cross[y][z] = "w"
-        elif m[y][z] == "o":
-            zero[y][z] = "w"
-        check_win()
+            if m[y][z] == "x":  # create cross - zero matrix
+                cross[y][z] = "w"
+                print("cross", cross)
+            elif m[y][z] == "o":
+                zero[y][z] = "w"
+                print('zero', zero)
+            check_win()
         i = +1
 
 
