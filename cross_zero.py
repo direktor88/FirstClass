@@ -145,9 +145,9 @@ def pobeda():  # deistvia pri pobede
     print()
     print("END")
     print()
-    clear()
     for j in m:
         print(*j)
+    #clear()
     exit()
 
 
@@ -172,6 +172,11 @@ def input_y():  ##vvod indeksa
 
 
 def base_game():
+    count = 0
+    while count < 9:
+        print()
+        for j in m:
+            print(*j)
         print()
         print("ХОД")
         print()
@@ -185,15 +190,15 @@ def base_game():
             print("uzhe zanyto, viberi druguiu kletku")
         else:
             m[y][z] = val
-            for j in m:
-                print(*j) # print of result
+            #for j in m:
+                #print(*j) # print of result
             if m[y][z] == "x":  # create cross - zero matrix
                 cross[y][z] = "w"
             elif m[y][z] == "o":
                 zero[y][z] = "w"
             nichya()
             check_win()
-
+    count+=1
 
 
 begin()
