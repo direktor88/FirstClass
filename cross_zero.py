@@ -121,19 +121,22 @@ def check_win():  # proverka viigrisha
             pobeda()
         elif zero == ff:
             pobeda()
+
+
 def nichya():
-    ze = cr = 0
+    ze = cr = 0 # ze - zero, cr - cross
     for i in m:
         for j in i:
             if j == 'o':
                 ze += 1
-                #print('ze', ze)
+                # print('ze', ze)
             elif j == 'x':
                 cr += 1
-                #print('cr', cr)
-    if ((ze == 5) and (cr==4)) or ((ze==4) and (cr==5)):
+                # print('cr', cr)
+    if ((ze == 5) and (cr == 4)) or ((ze == 4) and (cr == 5)):
         print('Voznikla nichya, nachnite novuyou igru')
         exit()
+
 
 def pobeda():  # deistvia pri pobede
     print()
@@ -145,6 +148,8 @@ def pobeda():  # deistvia pri pobede
     for j in m:
         print(*j)
     exit()
+
+
 def input_z():  # #vvod indeksa
     global z
     z = int(input('vvedi nomer stolbca ot 1 do 3  '))
@@ -153,6 +158,8 @@ def input_z():  # #vvod indeksa
     else:
         print('bud vnimatelen! stolbcov vsego 3 ')
         input_z()
+
+
 def input_y():  ##vvod indeksa
     global y
     y = int(input('vvedi nomer stroki  '))
@@ -161,11 +168,11 @@ def input_y():  ##vvod indeksa
     else:
         print('bud vnimatelen! strok vsego 3 ')
         input_y()
+
+
 def base_game():
-    i = 0
-    while i < 9:  # all step = 9
         print()
-        print("ХОД", i + 1)
+        print("ХОД")
         print()
         input_z()  # vvod indeksa
         input_y()  # vvod indeksa
@@ -175,20 +182,18 @@ def base_game():
             print("uzhe zanyto, viberi druguiu kletku")
         elif zero[y][z] == 'w':
             print("uzhe zanyto, viberi druguiu kletku")
-
         else:
             m[y][z] = val
             for j in m:
-                print(*j)
-            # функция замены переменной в матрице.
+                print(*j) # print of result
             if m[y][z] == "x":  # create cross - zero matrix
                 cross[y][z] = "w"
-                #print("cross", cross)
             elif m[y][z] == "o":
                 zero[y][z] = "w"
-                #print('zero', zero)
             nichya()
             check_win()
-        i = +1
+
+
+
 begin()
 base_game()
