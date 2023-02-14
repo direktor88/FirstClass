@@ -5,19 +5,19 @@ def begin():
         print(*j)
     print()
     global czsel1, czsel2
-    user1_data = {}
-    user2_data = {}
+    #user1_data = {}
+    #user2_data = {}
     player1 = input('vvedi imya  ')
-    user1_data['user'] = player1
+    #user1_data['user'] = player1
     czsel1 = input('viberi krestik "x" ili nolik "o"  ')  # CrossZeroSelection
-    user1_data['simvol'] = czsel1
+    #user1_data['simvol'] = czsel1
     player2 = input('vtoroi igrok vvedi imya ')
-    user2_data['user'] = player2
+    #user2_data['user'] = player2
     if czsel1 == 'x':
         czsel2 = "o"
     else:
         czsel2 = "x"
-    user2_data['simvol'] = czsel2
+    #user2_data['simvol'] = czsel2
     print("____________________________________________")
     print(f'pervi igrok "{player1}" vibral "{czsel1}"')
     print(f' vtoromu igroku "{player2}" dostalsa "{czsel2}"')
@@ -118,8 +118,11 @@ def check_win():  # proverka viigrisha
           win5, win6, win7, win8)
     for ff in mm:  # cheking!!!
         if cross == ff:
+
+            print("krestiki viigrali!!!")
             pobeda()
         elif zero == ff:
+            print("noliki viigrali!!!")
             pobeda()
 
 
@@ -128,12 +131,10 @@ def nichya():
     for i in m:
         for j in i:
             if j == 'o':
-                ze += 1
-                # print('ze', ze)
+                ze += 1             # summ of zero
             elif j == 'x':
-                cr += 1
-                # print('cr', cr)
-    if ((ze == 5) and (cr == 4)) or ((ze == 4) and (cr == 5)):
+                cr += 1                #summ of cross
+    if ((ze == 5) and (cr == 4)) or ((ze == 4) and (cr == 5)): # see what a bigger?
         print('Voznikla nichya, nachnite novuyou igru')
         exit()
 
