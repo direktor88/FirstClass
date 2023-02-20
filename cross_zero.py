@@ -7,7 +7,7 @@ def begin():
     global czsel1, czsel2, player1, player2
     player1 = input('vvedi imya  ')
     input_cz()
-    czsel1 = a
+    czsel1 = val
     player2 = input('vtoroi igrok vvedi imya ')
     if czsel1 == 'x':
         czsel2 = "o"
@@ -19,10 +19,10 @@ def begin():
 
 
 def input_cz():
-    global a
-    a = input('viberi krestik "x" ili nolik "o"  ')
-    if a == 'x' or a == 'o':
-        return a
+    global val
+    val = input('nazhmi krestik "x" ili nolik "o"  ')
+    if val == 'x' or val == 'o':
+        return val
     else:
         print('nevernii vibor')
         input_cz()
@@ -211,13 +211,11 @@ def base_game():
             print(*j)
         print()
         print(f'ХОД {count}')
-        # print()
-        # print(f'shag {count}')
         print()
         input_z()  # vvod indeksa
         input_y()  # vvod indeksa
-
-        val = str(input('vvedi simvol   '))  #
+        input_cz() # input cross or zero
+        #val = a
         # proverka ocheredi
         # if (count + 2) % 2 != 0 and val != czsel1:
         # game
@@ -229,10 +227,9 @@ def base_game():
         # print('dolzhen bit drugoi simvol, ili ochered ne ta')
         # base_game()
 
-        if cross[y][z] == "w":  # check clear cell of matrix
-            print("uzhe zanyto, viberi druguiu kletku")
-        elif zero[y][z] == 'w':  # check clear cell of matrix
-            print("uzhe zanyto, viberi druguiu kletku")
+        if cross[y][z] == "w" or zero[y][z] == 'w':  # check clear cell of matrix
+            print()
+            print("!!! AUCHTUNG !!! uzhe zanyto, viberi druguiu kletku")
         else:
             m[y][z] = val
             if m[y][z] == "x":  # create cross - zero matrix
