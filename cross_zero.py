@@ -4,7 +4,7 @@ def begin():
     for j in m:
         print(*j)
     print()
-    global czsel1, czsel2
+    global czsel1, czsel2, player1, player2
     #user1_data = {}
     #user2_data = {}
     player1 = input('vvedi imya  ')
@@ -118,13 +118,21 @@ def check_win():  # proverka viigrisha
           win5, win6, win7, win8)
     for ff in mm:  # cheking!!!
         if cross == ff:
-
-            print("krestiki viigrali!!!")
-            pobeda()
+            if czsel1 == 'x':
+                print(f'igrok {player1} viigral')
+                #print("krestiki viigrali!!!")
+                pobeda()
+            elif czsel2 == 'x':
+                print(f'igrok {player2} viigral')
+                #print('krestiki viigrali')
+                pobeda()
         elif zero == ff:
-            print("noliki viigrali!!!")
-            pobeda()
-
+            if czsel1 == 'o':
+                print(f'igrok {player1} viigral')
+                pobeda()
+            elif czsel2 == 'o':
+                print(f'igrok {player2} viigral')
+                pobeda()
 
 def nichya(): #stop game
     ze = cr = 0 # ze - zero, cr - cross
@@ -179,6 +187,7 @@ def input_y():  #input number of row
 #         print('est sovpadenie')
 #     else:
 #         print('ne vernii simvol')
+            #ochered()
 #     elif (count + 2) % 2 == 1:
 #         if val == czsel2:
 #             print('kto to poshel ne v svoyou ochered')
@@ -200,27 +209,28 @@ def base_game():
         input_y()  # vvod indeksa
         val = str(input('vvedi simvol   ')) #
         # proverka ocheredi
-        if (count + 2) % 2 == 0 and val == czsel1:
+        #if (count + 2) % 2 != 0 and val != czsel1:
+            #game
 
-        # #if val == czsel1:
-        #         print('est sovpadenie')
-        #     else:
-        #         print('ne vernii simvol')
-        elif (count + 2) % 2 == 1:
-        #         if val == czsel2:
-        #             print('kto to poshel ne v svoyou ochered')
+        #elif (count + 2) % 2 == 1 and val == czsel2:
+            #game
+            #
+        #else:
+            #print('dolzhen bit drugoi simvol, ili ochered ne ta')
+            # base_game()
+
         if cross[y][z] == "w": #check clear cell of matrix
-            print("uzhe zanyto, viberi druguiu kletku")
+             print("uzhe zanyto, viberi druguiu kletku")
         elif zero[y][z] == 'w': #check clear cell of matrix
-            print("uzhe zanyto, viberi druguiu kletku")
+             print("uzhe zanyto, viberi druguiu kletku")
         else:
             m[y][z] = val
             #for j in m:
                 #print(*j) # print of result
             if m[y][z] == "x":  # create cross - zero matrix
-                cross[y][z] = "w"
+                 cross[y][z] = "w"
             elif m[y][z] == "o":
-                zero[y][z] = "w"
+                 zero[y][z] = "w"
             nichya()
             check_win()
     count+=1
