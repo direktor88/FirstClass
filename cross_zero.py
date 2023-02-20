@@ -96,7 +96,7 @@ win8 = [
 ]
 
 
-def clear():  # clear matrix
+def clear():  # clear all matrix
     global m, zero, cross
     m = [
         [0, 1, 2, 3],
@@ -118,7 +118,7 @@ def clear():  # clear matrix
     ]
 
 
-def check_win():  # proverka viigrisha
+def check_win():  # proverka viigrisha (check winner)
     mm = (win1, win2, win3, win4,  # create matrix in matrix
           win5, win6, win7, win8)
     for ff in mm:  # cheking!!!
@@ -126,12 +126,10 @@ def check_win():  # proverka viigrisha
             if czsel1 == 'x':
                 print()
                 print(f'igrok {player1} viigral')
-                # print("krestiki viigrali!!!")
                 pobeda()
             elif czsel2 == 'x':
                 print()
                 print(f'igrok {player2} viigral')
-                # print('krestiki viigrali')
                 pobeda()
         elif zero == ff:
             if czsel1 == 'o':
@@ -144,7 +142,7 @@ def check_win():  # proverka viigrisha
                 pobeda()
 
 
-def nichya():  # stop game
+def nichya():  #when we stop game
     ze = cr = 0  # ze - zero, cr - cross
     for i in m:
         for j in i:
@@ -157,7 +155,7 @@ def nichya():  # stop game
         clear()
         begin()
         base_game()
-        # exit()
+        # exit() # if need
 
 
 def pobeda():  # deistvia pri pobede
@@ -170,7 +168,7 @@ def pobeda():  # deistvia pri pobede
     exit()
 
 
-def input_z():  # input
+def input_z():  # input coordinates
     global z
     z = int(input('vvedi nomer stolbca ot 1 do 3  '))
     if 1 <= z <= 3:
@@ -214,9 +212,9 @@ def base_game():
         print()
         input_z()  # vvod indeksa
         input_y()  # vvod indeksa
-        input_cz() # input cross or zero
-        #val = a
+        input_cz()  # input cross or zero
         # proverka ocheredi
+
         # if (count + 2) % 2 != 0 and val != czsel1:
         # game
 
