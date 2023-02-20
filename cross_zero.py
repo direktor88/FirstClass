@@ -126,7 +126,7 @@ def check_win():  # proverka viigrisha
             pobeda()
 
 
-def nichya():
+def nichya(): #stop game
     ze = cr = 0 # ze - zero, cr - cross
     for i in m:
         for j in i:
@@ -136,7 +136,10 @@ def nichya():
                 cr += 1                #summ of cross
     if ((ze == 5) and (cr == 4)) or ((ze == 4) and (cr == 5)): # see what a bigger?
         print('Voznikla nichya, nachnite novuyou igru')
-        exit()
+        clear()
+        begin()
+        base_game()
+        #exit()
 
 
 def pobeda():  # deistvia pri pobede
@@ -151,7 +154,7 @@ def pobeda():  # deistvia pri pobede
     exit()
 
 
-def input_z():  # #vvod indeksa
+def input_z():  # input
     global z
     z = int(input('vvedi nomer stolbca ot 1 do 3  '))
     if 1 <= z <= 3:
@@ -161,7 +164,7 @@ def input_z():  # #vvod indeksa
         input_z()
 
 
-def input_y():  ##vvod indeksa
+def input_y():  #input number of row
     global y
     y = int(input('vvedi nomer stroki  '))
     if 1 <= y <= 3:
@@ -170,23 +173,45 @@ def input_y():  ##vvod indeksa
         print('bud vnimatelen! strok vsego 3 ')
         input_y()
 
+# def ochered ():
+#     if (count + 2) % 2 == 0 and val == czsel1:
+#         #if val == czsel1:
+#         print('est sovpadenie')
+#     else:
+#         print('ne vernii simvol')
+#     elif (count + 2) % 2 == 1:
+#         if val == czsel2:
+#             print('kto to poshel ne v svoyou ochered')
+
 
 def base_game():
+    global val, count
     count = 0
     while count < 9:
         print()
-        for j in m:
+        for j in m: # print matrix of cross zero
             print(*j)
         print()
         print("ХОД")
         print()
+        print(f'shag {count}')
+        print()
         input_z()  # vvod indeksa
         input_y()  # vvod indeksa
-        val = str(input('vvedi simvol   '))
+        val = str(input('vvedi simvol   ')) #
         # proverka ocheredi
-        if cross[y][z] == "w":
+        if (count + 2) % 2 == 0 and val == czsel1:
+
+        # #if val == czsel1:
+        #         print('est sovpadenie')
+        #     else:
+        #         print('ne vernii simvol')
+        elif (count + 2) % 2 == 1:
+        #         if val == czsel2:
+        #             print('kto to poshel ne v svoyou ochered')
+        if cross[y][z] == "w": #check clear cell of matrix
             print("uzhe zanyto, viberi druguiu kletku")
-        elif zero[y][z] == 'w':
+        elif zero[y][z] == 'w': #check clear cell of matrix
             print("uzhe zanyto, viberi druguiu kletku")
         else:
             m[y][z] = val
