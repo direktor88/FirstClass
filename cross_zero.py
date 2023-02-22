@@ -18,7 +18,7 @@ def begin():
     print(f' vtoromu igroku "{player2}" dostalsa "{czsel2}"')
 
 
-def input_cz():
+def input_cz(): # check input cross or zero only
     global val
     val = input('nazhmi krestik "x" ili nolik "o"  ')
     if val == 'x' or val == 'o':
@@ -122,12 +122,13 @@ def check_win():  # proverka viigrisha (check winner)
     mm = (win1, win2, win3, win4,  # create matrix in matrix
           win5, win6, win7, win8)
     for ff in mm:  # cheking!!!
-        if cross == ff:
+        if cross == ff:  # who is winner!?
             cross_win()
-        elif zero == ff:
+        elif zero == ff:  # who is winner!?
             zero_win()
 
-def zero_win():
+
+def zero_win():  # see who is winner? player1 or player2
     if czsel1 == 'o':
         print()
         print(f'igrok {player1} viigral')
@@ -137,7 +138,8 @@ def zero_win():
         print(f'igrok {player2} viigral')
         pobeda()
 
-def cross_win():
+
+def cross_win():  # see who is winner? player1 or player2
     if czsel1 == 'x':
         print()
         print(f'igrok {player1} viigral')
@@ -148,9 +150,9 @@ def cross_win():
         pobeda()
 
 
-def nichya():  #when we stop game
+def nichya():  # when we stop game
     ze = cr = 0  # ze - zero, cr - cross
-    for i in m:
+    for i in m: #see matrix "m" to cross and zero
         for j in i:
             if j == 'o':
                 ze += 1  # summ of zero
@@ -169,9 +171,9 @@ def pobeda():  # deistvia pri pobede
     print("END")
     print()
     for j in m:
-        print(*j)
-    # clear()
-    exit()
+        print(*j)  # any do
+    # clear() #any do
+    exit()  # any do
 
 
 def input_z():  # input coordinates
@@ -194,21 +196,9 @@ def input_y():  # input number of row
         input_y()
 
 
-# def ochered ():
-#     if (count + 2) % 2 == 0 and val == czsel1:
-#         #if val == czsel1:
-#         print('est sovpadenie')
-#     else:
-#         print('ne vernii simvol')
-# ochered()
-#     elif (count + 2) % 2 == 1:
-#         if val == czsel2:
-#             print('kto to poshel ne v svoyou ochered')
-
-
 def base_game():
     global count
-    count = int(1)
+    count = 1
     while count <= 9:
         print()
         for j in m:  # print matrix of cross zero
@@ -219,30 +209,30 @@ def base_game():
         input_z()  # vvod indeksa
         input_y()  # vvod indeksa
         input_cz()  # input cross or zero
-        # proverka ocheredi
-
-        # if (count + 2) % 2 != 0 and val != czsel1:
-        # game
-
-        # elif (count + 2) % 2 == 1 and val == czsel2:
-        # game
-        #
-        # else:
-        # print('dolzhen bit drugoi simvol, ili ochered ne ta')
-        # base_game()
-
-        if cross[y][z] == "w" or zero[y][z] == 'w':  # check clear cell of matrix
-            print()
-            print("!!! AUCHTUNG !!! uzhe zanyto, viberi druguiu kletku")
+        # proverka ocheredi (first player or second?)
+        if (count + 2) % 2 == 1 and val == czsel1:
+            game()
+        elif (count + 2) % 2 == 0 and val == czsel2:
+            game()
         else:
-            m[y][z] = val
-            if m[y][z] == "x":  # create cross - zero matrix
-                cross[y][z] = "w"
-            elif m[y][z] == "o":
-                zero[y][z] = "w"
-            nichya()
-            check_win()
-            count += 1
+            print('dolzhen bit drugoi simvol, ili ochered ne ta')
+
+
+def game():
+    global count
+    if cross[y][z] == "w" or zero[y][z] == 'w':  # check clear cell of matrix
+        print()
+        print("!!! AUCHTUNG !!! uzhe zanyto, viberi druguiu kletku")
+    else:
+        m[y][z] = val
+        if m[y][z] == "x":  # create cross - zero matrix
+            cross[y][z] = "w"
+        elif m[y][z] == "o":
+            zero[y][z] = "w"
+        nichya()
+        check_win()
+        count += 1
+        # base_game()
 
 
 begin()
