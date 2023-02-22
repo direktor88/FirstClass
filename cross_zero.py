@@ -123,23 +123,29 @@ def check_win():  # proverka viigrisha (check winner)
           win5, win6, win7, win8)
     for ff in mm:  # cheking!!!
         if cross == ff:
-            if czsel1 == 'x':
-                print()
-                print(f'igrok {player1} viigral')
-                pobeda()
-            elif czsel2 == 'x':
-                print()
-                print(f'igrok {player2} viigral')
-                pobeda()
+            cross_win()
         elif zero == ff:
-            if czsel1 == 'o':
-                print()
-                print(f'igrok {player1} viigral')
-                pobeda()
-            elif czsel2 == 'o':
-                print()
-                print(f'igrok {player2} viigral')
-                pobeda()
+            zero_win()
+
+def zero_win():
+    if czsel1 == 'o':
+        print()
+        print(f'igrok {player1} viigral')
+        pobeda()
+    elif czsel2 == 'o':
+        print()
+        print(f'igrok {player2} viigral')
+        pobeda()
+
+def cross_win():
+    if czsel1 == 'x':
+        print()
+        print(f'igrok {player1} viigral')
+        pobeda()
+    elif czsel2 == 'x':
+        print()
+        print(f'igrok {player2} viigral')
+        pobeda()
 
 
 def nichya():  #when we stop game
@@ -201,7 +207,7 @@ def input_y():  # input number of row
 
 
 def base_game():
-    global val, count
+    global count
     count = int(1)
     while count <= 9:
         print()
